@@ -57,6 +57,11 @@ body {
   line-height: 1.5;
   overflow-x: hidden;
   position: relative;
+  padding-top: 72px;
+}
+
+header[id], section[id] {
+  scroll-margin-top: 88px;
 }
 
 img {
@@ -82,8 +87,8 @@ a {
   text-decoration: none;
 }
 
-/* Background FX Canvases */
-#ambient-canvas, #confetti-canvas {
+/* Confetti FX Canvas */
+#confetti-canvas {
   position: fixed;
   top: 0;
   left: 0;
@@ -91,10 +96,6 @@ a {
   height: 100vh;
   pointer-events: none;
   z-index: 9999;
-}
-#ambient-canvas {
-  z-index: 0;
-  opacity: 0.35;
 }
 
 /* ═══════════════════ TOP UTILITY BAR ═══════════════════ */
@@ -188,20 +189,29 @@ a {
   border-radius: var(--radius-hero);
   width: 100%;
   max-width: 1360px;
-  padding: 36px 54px 54px 54px;
+  padding: 28px 54px 54px 54px;
   box-shadow: var(--shadow-hero);
   position: relative;
   display: flex;
   flex-direction: column;
 }
 
-/* ─── Hero Navigation Bar ─── */
+/* ─── Fixed Top Navigation Bar ─── */
 .hero-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 24px;
-  position: relative;
+  padding: 14px max(28px, calc((100vw - 1252px) / 2));
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(23, 23, 23, 0.06);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
 }
 
 .brand-link {
@@ -2077,7 +2087,7 @@ a {
   flex-wrap: wrap;
 }
 
-.kds-filter-chip, .legend-filter-btn {
+.kds-filter-chip {
   background: rgba(255, 255, 255, 0.08);
   color: #CFCBC0;
   border-radius: var(--radius-pill);
@@ -2087,7 +2097,7 @@ a {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.kds-filter-chip.active, .legend-filter-btn.active {
+.kds-filter-chip.active {
   background: var(--accent-yellow);
   color: #171717;
   border-color: var(--accent-yellow);
@@ -2309,6 +2319,12 @@ a {
 
 /* 4. Mobile Devices (<= 768px) */
 @media (max-width: 768px) {
+  body {
+    padding-top: 66px;
+  }
+  .hero-navbar {
+    padding: 12px 20px;
+  }
   .hero-outer-frame {
     padding: 16px 12px 30px 12px;
   }
@@ -2318,17 +2334,18 @@ a {
   }
   .nav-menu-links {
     display: none;
-    position: absolute;
-    top: 70px;
-    left: 0;
-    width: 100%;
+    position: fixed;
+    top: 68px;
+    left: 12px;
+    right: 12px;
+    width: auto;
     background: #FFFFFF;
     border-radius: 16px;
     box-shadow: var(--shadow-modal);
     flex-direction: column;
     padding: 20px;
     gap: 16px;
-    z-index: 100;
+    z-index: 901;
   }
   .nav-menu-links.mobile-open {
     display: flex;
