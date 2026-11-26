@@ -1603,9 +1603,9 @@ function selectTable(tableId, rerender = true) {
   const cartSelect = $("#cart-table-select");
 
   if (state.selectedTable === "takeout") {
-    if (bannerName) bannerName.textContent = "Takeout / Food Truck Pick-up";
+    if (bannerName) bannerName.textContent = "Takeaway / Counter Pick-up";
     if (bannerChip) {
-      bannerChip.textContent = "Takeout";
+      bannerChip.textContent = "Takeaway";
       bannerChip.className = "table-status-pill pill-ready";
     }
     if (cartSelect) cartSelect.value = "takeout";
@@ -2097,7 +2097,7 @@ function openReceiptModal(order) {
   if (recTable) {
     recTable.textContent = order.tableId
       ? `Table ${order.tableId} (Dine-In)`
-      : "Takeout / Food Truck Pick-up";
+      : "Takeaway / Counter Pick-up";
   }
   if (recDate) {
     recDate.textContent = new Date(order.createdAt).toLocaleDateString() + " " +
@@ -2165,6 +2165,14 @@ function renderKDS() {
   );
 
   if (staffKdsBadge) staffKdsBadge.textContent = activeOrders.length;
+  const kdsCountAll = $("#kds-count-all");
+  const kdsCountQueued = $("#kds-count-queued");
+  const kdsCountPrep = $("#kds-count-prep");
+  const kdsCountReady = $("#kds-count-ready");
+  if (kdsCountAll) kdsCountAll.textContent = activeOrders.length;
+  if (kdsCountQueued) kdsCountQueued.textContent = activeOrders.filter((o) => o.status === "queued").length;
+  if (kdsCountPrep) kdsCountPrep.textContent = activeOrders.filter((o) => o.status === "in-preparation").length;
+  if (kdsCountReady) kdsCountReady.textContent = activeOrders.filter((o) => o.status === "ready").length;
 
   let filtered = activeOrders;
   if (state.kdsFilter !== "all") {
@@ -2276,7 +2284,7 @@ function renderBills() {
         <span style="font-weight:800; color:var(--accent-yellow); font-size:1.1rem;">${formatCurrency(ord.total)}</span>
       </div>
       <div style="font-size:0.75rem; color:#A8A69E; margin-bottom:12px;">
-        ${ord.tableId ? `Table ${ord.tableId} · Dine-In` : "Takeout / Food Truck"} · Placed ${timeAgo(ord.createdAt)}
+        ${ord.tableId ? `Table ${ord.tableId} · Dine-In` : "Takeaway"} · Placed ${timeAgo(ord.createdAt)}
       </div>
       <button class="kds-action-btn" data-bill-id="${ord.id}">Settle &amp; Print Paid Receipt</button>
     </div>
@@ -2514,7 +2522,8 @@ function initEventListeners() {
           isSubmittingOrder = false;
           if (btnCheckout) {
             btnCheckout.disabled = false;
-            btnCheckout.innerHTML = `<span>Send Order to Kitchen</span><span class="checkout-arrow">&rarr;</span>`;
+            btnCheckout.innerHTML = `<span id="btn-checkout-label">Send Order to Kitchen</span><span class="checkout-arrow">&rarr;</span>`;
+            renderCartDrawer();
           }
         }, 1200);
       }
@@ -2686,6 +2695,18 @@ function initEventListeners() {
       setTimeout(() => {
         if (searchInput) searchInput.focus();
       }, 500);
+    });
+  }
+
+  // Nav User Profile button
+  const navUserBtn = $("#nav-user-btn");
+  if (navUserBtn) {
+    navUserBtn.addEventListener("click", () => {
+      const targetLabel = state.selectedTable === "takeout"
+        ? "Takeaway / Counter Pick-up"
+        : `Table ${state.selectedTable}`;
+      const favCount = state.favorites.size;
+      showToast(`Active target: ${targetLabel} · ${favCount} favorite item${favCount === 1 ? "" : "s"}`, "info");
     });
   }
 

@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════
-   KTCH — Minimalist Japanese-Inspired Modern Food Ordering System
+   KTCH — Authentic Indian Cuisine & Modern Food Ordering System
    Reference 1: Pastel Hero, Large Serif Typography, Clean Nav
    Reference 2: Warm Off-White Food Menu, 4-Column Cards, Yellow Accents
    ═══════════════════════════════════════════════════════════════ */
@@ -513,7 +513,7 @@ a {
   color: var(--text-primary);
 }
 
-/* Dominant Sushi Image with Chopsticks */
+/* Dominant Hero Food Image */
 .hero-sushi-wrap {
   width: 100%;
   max-width: 620px;
