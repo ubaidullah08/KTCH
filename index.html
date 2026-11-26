@@ -250,7 +250,7 @@
         <div class="menu-header-bar">
           <div class="menu-header-left">
             <h2 class="menu-items-count"><span id="menu-total-count">78</span> Menu Items</h2>
-            <p class="menu-header-sub">Handcrafted artisan bowls, gourmet burgers, stone-fired pizza &amp; chilled brews
+            <p class="menu-header-sub">Authentic North &amp; South Indian delicacies, clay-oven tandoori, aromatic biryanis &amp; rich traditional sweets
             </p>
           </div>
 
@@ -288,12 +288,13 @@
         <!-- Category Filter Tabs -->
         <nav class="category-tabs-bar" id="category-tabs-bar" aria-label="Food Categories">
           <button class="category-pill active" data-category="All Items">All Items (78)</button>
-          <button class="category-pill" data-category="Burgers">Burgers &amp; Sandwiches</button>
-          <button class="category-pill" data-category="Pizzas">Stone-Fired Pizzas</button>
-          <button class="category-pill" data-category="Chicken & Sides">Crispy Chicken &amp; Sides</button>
-          <button class="category-pill" data-category="Rice Bowls & Musubi">Rice Bowls &amp; Musubi</button>
-          <button class="category-pill" data-category="Beverages & Shakes">Beverages &amp; Shakes</button>
-          <button class="category-pill" data-category="Desserts">Sweet Treats</button>
+          <button class="category-pill" data-category="Starters & Chaat">Starters &amp; Chaat</button>
+          <button class="category-pill" data-category="Curries & Mains">Curries &amp; Mains</button>
+          <button class="category-pill" data-category="Biryani & Rice">Biryani &amp; Rice</button>
+          <button class="category-pill" data-category="Breads">Breads</button>
+          <button class="category-pill" data-category="South Indian">South Indian</button>
+          <button class="category-pill" data-category="Beverages">Beverages</button>
+          <button class="category-pill" data-category="Sweet Treats">Sweet Treats</button>
         </nav>
 
         <!-- Product Grid: 4 cards per row on desktop (Image 2) -->
@@ -305,7 +306,7 @@
         <div class="menu-empty-state hidden" id="menu-empty-state">
           <span class="empty-icon-large">🍽️</span>
           <h3>No matching food items found</h3>
-          <p>Try searching for burgers, pizza, chicken wings, musubi, cold brew, or select another category.</p>
+          <p>Try searching for paneer tikka, butter chicken, biryani, masala dosa, chai, or select another category.</p>
           <button class="btn-pill-black" id="btn-reset-filters">View All 78 Items</button>
         </div>
 
@@ -455,11 +456,11 @@
           <div class="footer-col-links">
             <h4 class="footer-col-title">Favorites</h4>
             <ul class="footer-links-list">
-              <li><a href="#menu" data-cat="Burgers">Cheesy Beef Burger</a></li>
-              <li><a href="#menu" data-cat="Pizzas">Pepperoni Supreme</a></li>
-              <li><a href="#menu" data-cat="Chicken & Sides">Crispy Wing Box</a></li>
-              <li><a href="#menu" data-cat="Rice Bowls & Musubi">California Sushi Roll</a></li>
-              <li><a href="#menu" data-cat="Beverages & Shakes">Cold Brew Cooler</a></li>
+              <li><a href="#menu" data-cat="Curries & Mains">Butter Chicken</a></li>
+              <li><a href="#menu" data-cat="Curries & Mains">Dal Makhani</a></li>
+              <li><a href="#menu" data-cat="Biryani & Rice">Hyderabadi Chicken Dum Biryani</a></li>
+              <li><a href="#menu" data-cat="Starters & Chaat">Paneer Tikka</a></li>
+              <li><a href="#menu" data-cat="Beverages">Masala Chai</a></li>
             </ul>
           </div>
 
@@ -524,11 +525,11 @@
     <div class="cart-drawer-footer" id="cart-drawer-footer">
       <div class="cart-cost-row">
         <span>Subtotal</span>
-        <span id="cart-subtotal-val">$0.00</span>
+        <span id="cart-subtotal-val">₹0</span>
       </div>
       <div class="cart-cost-row">
-        <span>SF Bay Area Tax (8.75%)</span>
-        <span id="cart-tax-val">$0.00</span>
+        <span>GST (5%)</span>
+        <span id="cart-tax-val">₹0</span>
       </div>
       <div class="cart-cost-row">
         <span>Delivery &amp; Service Fee</span>
@@ -537,7 +538,7 @@
       <div class="cart-divider-line"></div>
       <div class="cart-cost-row cart-total-row">
         <span>Total Due</span>
-        <span id="cart-total-val">$0.00</span>
+        <span id="cart-total-val">₹0</span>
       </div>
 
       <button class="btn-checkout-primary" id="btn-cart-checkout">
@@ -643,17 +644,17 @@
           <label class="modal-label">Seasoning / Spice Profile</label>
           <div class="radio-group" id="spice-group">
             <label class="chip-radio"><input type="radio" name="spice" value="Mild" checked /> 🌿 Mild / Classic</label>
-            <label class="chip-radio"><input type="radio" name="spice" value="Shichimi 🔥" /> 🔥 Shichimi Spice</label>
-            <label class="chip-radio"><input type="radio" name="spice" value="Wasabi 🌶️" /> 🌶️ Spicy Tare</label>
+            <label class="chip-radio"><input type="radio" name="spice" value="Medium 🔥" /> 🔥 Medium Spice</label>
+            <label class="chip-radio"><input type="radio" name="spice" value="Spicy 🌶️" /> 🌶️ Extra Spicy</label>
           </div>
         </div>
 
         <div class="modal-section">
           <label class="modal-label">Extras / Customizations</label>
           <div class="checkbox-group" id="extras-group">
-            <label class="chip-check"><input type="checkbox" value="Extra Sauce" /> 🍶 Extra House Tare Sauce (+$0.50)</label>
-            <label class="chip-check"><input type="checkbox" value="Cheddar Slice" /> 🧀 Melted Cheddar (+$1.00)</label>
-            <label class="chip-check"><input type="checkbox" value="Crispy Nori" /> 🍙 Extra Roasted Nori (+$0.50)</label>
+            <label class="chip-check"><input type="checkbox" value="Extra Chutney" /> 🥣 Extra Mint &amp; Imli Chutney (+₹20)</label>
+            <label class="chip-check"><input type="checkbox" value="Extra Butter" /> 🧈 Desi Makhan / Butter (+₹30)</label>
+            <label class="chip-check"><input type="checkbox" value="Extra Cheese" /> 🧀 Melted Amul Cheese (+₹40)</label>
           </div>
         </div>
 
@@ -696,12 +697,12 @@
         <div class="receipt-divider-dash"></div>
 
         <div class="receipt-totals-block">
-          <div class="rec-row"><span>Subtotal</span><span id="rec-subtotal">$0.00</span></div>
-          <div class="rec-row"><span>SF Bay Tax (8.75%)</span><span id="rec-tax">$0.00</span></div>
-          <div class="rec-row" id="rec-service-row"><span>Kitchen Service</span><span id="rec-service">$0.00</span></div>
-          <div class="rec-row" id="rec-tip-row"><span>Gratuity</span><span id="rec-tip">$0.00</span></div>
+          <div class="rec-row"><span>Subtotal</span><span id="rec-subtotal">₹0</span></div>
+          <div class="rec-row"><span>GST (5%)</span><span id="rec-tax">₹0</span></div>
+          <div class="rec-row" id="rec-service-row"><span>Kitchen Service</span><span id="rec-service">₹0</span></div>
+          <div class="rec-row" id="rec-tip-row"><span>Gratuity</span><span id="rec-tip">₹0</span></div>
           <div class="receipt-divider-solid"></div>
-          <div class="rec-row rec-grand"><span>GRAND TOTAL</span><span id="rec-grand">$0.00</span></div>
+          <div class="rec-row rec-grand"><span>GRAND TOTAL</span><span id="rec-grand">₹0</span></div>
         </div>
 
         <div class="receipt-footer">
